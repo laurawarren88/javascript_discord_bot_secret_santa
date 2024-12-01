@@ -5,10 +5,12 @@ A Discord bot for organising and managing a fun Secret Santa event in your Disco
 
 ## ✨ Features ##
 
+```text
 🎄  Join the Event: Users can join by typing "#join", sending a 🎅, 🧑‍🎄 or 🧝 emoji.
 🎄  Automatic Pairing: Admins can use a command to randomly assign participants their Secret Santa pair.
 🎄  Private Notifications: Participants receive their assignments via direct message.
 🎄  Customisable Deadline: Admins can set a deadline for sending gifts, and reminders are sent as the deadline approaches.🎄    Error Handling: Notifies admins if a participant's DM could not be sent.
+```
 
 ## 🚀 Getting Started ##
 
