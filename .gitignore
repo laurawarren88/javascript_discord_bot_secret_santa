@@ -5,6 +5,11 @@ node_modules
 
 # Participant data (contains Discord user IDs)
 data/
+
+# Team-specific content
+pinMessage.txt
+
+# Test files
 test.js
 simple-test.js
 bot-with-timeout.js
