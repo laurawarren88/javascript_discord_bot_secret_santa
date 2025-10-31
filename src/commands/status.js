@@ -5,20 +5,16 @@ export default async (message, participants) => {
     const deadline = getDeadline();
     const now = new Date();
     
-    let deadlineText = 'No deadline set';
-    let timeLeftText = '';
+    const deadlineText = deadline.toLocaleString();
+    const timeLeft = deadline - now;
     
-    if (deadline) {
-        deadlineText = deadline.toLocaleString();
-        const timeLeft = deadline - now;
-        
-        if (timeLeft > 0) {
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            timeLeftText = `⏰ Time left: ${days} days, ${hours} hours`;
-        } else {
-            timeLeftText = '⚠️ Deadline has passed!';
-        }
+    let timeLeftText = '';
+    if (timeLeft > 0) {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        timeLeftText = `⏰ Time left: ${days} days, ${hours} hours`;
+    } else {
+        timeLeftText = '⚠️ Deadline has passed!';
     }
 
     const embed = {
@@ -37,7 +33,7 @@ export default async (message, participants) => {
             },
             {
                 name: '⏱️ Status',
-                value: timeLeftText || 'Ready to set deadline',
+                value: timeLeftText,
                 inline: false
             }
         ],

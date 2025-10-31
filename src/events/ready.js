@@ -2,12 +2,20 @@ import { getDeadline } from '../commands/deadline.js';
 import { testBotConnection } from '../utils/test.js';
 
 export default (client) => {
-    client.on('ready', () => {
-        console.log(`Logged in as ${client.user.tag}`);
-
+    console.log(`🎅 Bot is ready! Logged in as ${client.user.tag}`);
+    console.log(`🏠 Connected to ${client.guilds.cache.size} server(s)`);
+    
+    // Test bot connection
+    if (process.env.CHANNEL_ID) {
+        console.log('🧪 Testing bot connection...');
         testBotConnection(client, process.env.CHANNEL_ID);
+    } else {
+        console.warn('⚠️ No CHANNEL_ID set in environment variables');
+    }
 
-        setInterval(async () => {
+    // Set up reminder interval
+    setInterval(async () => {
+        try {
             const deadline = getDeadline();
             if (deadline) {
                 const now = new Date();
@@ -17,6 +25,8 @@ export default (client) => {
                     await channel.send(`🎄 Reminder: Secret Santa deadline is in ${timeLeft} days! 🎁`);
                 }
             }
-        }, 24 * 60 * 60 * 1000); // Every 24 hours
-    });
+        } catch (error) {
+            console.error('Error in reminder interval:', error);
+        }
+    }, 24 * 60 * 60 * 1000); // Every 24 hours
 };

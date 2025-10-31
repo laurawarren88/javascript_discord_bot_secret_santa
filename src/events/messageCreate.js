@@ -4,7 +4,7 @@ import listCommand from '../commands/list.js';
 import resetCommand from '../commands/reset.js';
 import helpCommand from '../commands/help.js';
 import statusCommand from '../commands/status.js';
-import { setDeadline, getDeadline } from '../commands/deadline.js';
+import { getDeadline } from '../commands/deadline.js';
 import { loadParticipants, saveParticipants } from '../utils/participantStorage.js';
 
 const participants = await loadParticipants();
@@ -72,9 +72,6 @@ export default async (client, message) => {
             await helpCommand(message);
         } else if (message.content === '#status') {
             await statusCommand(message, participants);
-        } else if (message.content.startsWith('#setDeadline')) {
-            const args = message.content.split(' ').slice(1);
-            await setDeadline(message, args);
         } else if (validEmojis.includes(message.content.trim())) {
             await handleReactionJoin(message, message.content.trim());
         } else {

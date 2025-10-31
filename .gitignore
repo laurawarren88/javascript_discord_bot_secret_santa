@@ -2,3 +2,10 @@ node_modules
 .env
 .git
 *.log
+
+# Participant data (contains Discord user IDs)
+data/
+test.js
+simple-test.js
+bot-with-timeout.js
+token-test.js

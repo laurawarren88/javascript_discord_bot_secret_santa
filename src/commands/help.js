@@ -16,13 +16,7 @@ export default async (message) => {
                 value: '`#draw` - Draw and assign Secret Santa pairs\n' +
                        '`#list` - View all participants\n' +
                        '`#reset` - Reset all participants\n' +
-                       '`#setDeadline YYYY-MM-DD HH:mm` - Set gift deadline\n' +
                        '`#status` - Show event status',
-                inline: false
-            },
-            {
-                name: '📝 Example',
-                value: '`#setDeadline 2025-12-20 18:00`',
                 inline: false
             }
         ],

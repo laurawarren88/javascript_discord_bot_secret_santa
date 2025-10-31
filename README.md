@@ -63,14 +63,13 @@ node src/index.js
 - `#list` - View all current participants
 - `#reset` - Reset all participants (with confirmation)
 - `#status` - Show current event status and deadline
-- `#setDeadline YYYY-MM-DD HH:mm` - Set gift exchange deadline
 
 ### 📝 Examples
 
 ``` text
-#setDeadline 2025-12-20 18:00
 #draw
 #status
+#list
 ```
 
 ## 🛡️ Error Handling
