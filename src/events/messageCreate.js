@@ -1,5 +1,9 @@
 import joinCommand from '../commands/join.js';
 import drawCommand from '../commands/draw.js';
+import listCommand from '../commands/list.js';
+import resetCommand from '../commands/reset.js';
+import helpCommand from '../commands/help.js';
+import statusCommand from '../commands/status.js';
 import { setDeadline, getDeadline } from '../commands/deadline.js';
 import { loadParticipants, saveParticipants } from '../utils/participantStorage.js';
 
@@ -60,12 +64,20 @@ export default async (client, message) => {
             }
         } else if (message.content === '#draw') {
             await drawCommand(message, participants);
+        } else if (message.content === '#list') {
+            await listCommand(message, participants);
+        } else if (message.content === '#reset') {
+            await resetCommand(message, participants);
+        } else if (message.content === '#help') {
+            await helpCommand(message);
+        } else if (message.content === '#status') {
+            await statusCommand(message, participants);
         } else if (message.content.startsWith('#setDeadline')) {
-            await setDeadline(message, message.content.split(' '));
+            const args = message.content.split(' ').slice(1);
+            await setDeadline(message, args);
         } else if (validEmojis.includes(message.content.trim())) {
             await handleReactionJoin(message, message.content.trim());
         } else {
-            // await message.channel.send(`❌ ${message.author.username}, that's not a valid emoji!`);
             console.log('No matching command or valid emoji detected.');
         }
     } catch (error) {

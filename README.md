@@ -1,20 +1,21 @@
 
-# 🎅 **Secret Santa Discord Bot** 🎄 #
+# 🎅 **Secret Santa Discord Bot 2025** 🎄
 
-A Discord bot for organising and managing a fun Secret Santa event in your Discord server!
+A feature-rich Discord bot for organising and managing Secret Santa events in your Discord server!
 
-## ✨ Features ##
+## ✨ Features
 
-```text
-🎄  Join the Event: Users can join by typing "#join", sending a 🎅, 🧑‍🎄 or 🧝 emoji.
-🎄  Automatic Pairing: Admins can use a command to randomly assign participants their Secret Santa pair.
-🎄  Private Notifications: Participants receive their assignments via direct message.
-🎄  Customisable Deadline: Admins can set a deadline for sending gifts, and reminders are sent as the deadline approaches.🎄    Error Handling: Notifies admins if a participant's DM could not be sent.
-```
+🎄 **Easy Joining**: Users can join by typing `#join` or sending Christmas emojis (🎅, 🧑‍🎄, 🧝)  
+🎄 **Smart Pairing**: Improved algorithm ensures fair random pairing with validation  
+🎄 **Private Notifications**: Enhanced DM system with better error handling  
+🎄 **Deadline Management**: Set deadlines with automatic reminders  
+🎄 **Admin Tools**: List participants, reset events, view status  
+🎄 **Help System**: Built-in help command with all available options  
+🎄 **Robust Error Handling**: Better validation and user feedback
 
-## 🚀 Getting Started ##
+## 🚀 Getting Started
 
-## Step One ##
+## Step One
 
 Clone the Repository
 
@@ -23,7 +24,7 @@ git clone https://github.com/your-username/secret-santa-bot.git
 cd secret-santa-bot
 ```
 
-## Step Two ##
+## Step Two
 
 Install Dependencies: Ensure you have Node.js installed, then run:
 
@@ -31,7 +32,7 @@ Install Dependencies: Ensure you have Node.js installed, then run:
 npm install
 ```
 
-## Step Three ##
+## Step Three
 
 Set Up Environment Variables: Create a .env file in the project root with the following content:
 
@@ -40,7 +41,7 @@ DISCORD_TOKEN=your-discord-bot-token
 CHANNEL_ID=your-channel-id
 ```
 
-## Step Four ##
+## Step Four
 
 Start the bot using:
 
@@ -48,24 +49,31 @@ Start the bot using:
 node src/index.js
 ```
 
-## 🛠 Commands ##
+## 🛠 Commands
 
-**User Commands**
-Join the Event:
-Type "#join", send a 🎅, 🧑‍🎄 or 🧝 emoji.
-View Details: Check the pinned message in the designated channel.
+### 👥 User Commands
 
-**Admin Commands**
-Set Deadline:
-\#setDeadline YYYY-MM-DD HH:mm
-Sets the deadline for sending gifts. Example:
-\#setDeadline 2024-12-15 18:00
+- `#join` - Join the Secret Santa event
+- `#help` - Show all available commands
+- 🎅 🧑‍🎄 🧝 - Join by sending Christmas emojis
 
-Draw Pairs:
-\#draw
-Randomly assigns Secret Santa pairs and sends DMs to participants.
+### 👑 Admin Commands
 
-## 🛡️ Error Handling ##
+- `#draw` - Draw and assign Secret Santa pairs
+- `#list` - View all current participants
+- `#reset` - Reset all participants (with confirmation)
+- `#status` - Show current event status and deadline
+- `#setDeadline YYYY-MM-DD HH:mm` - Set gift exchange deadline
+
+### 📝 Examples
+
+``` text
+#setDeadline 2025-12-20 18:00
+#draw
+#status
+```
+
+## 🛡️ Error Handling
 
 If a participant's DMs are disabled, the bot notifies them in the server and logs an error.
 Ensure participants enable DMs to receive their pair assignments.

@@ -2,7 +2,7 @@
 let deadline = null;
 
 export const setDeadline = (message, args) => {
-    if (!message.member.permissions.has('ADMINISTRATOR')) {
+    if (!message.member.permissions.has('Administrator')) {
         return message.reply('Only an admin can set the deadline.');
     }
 
